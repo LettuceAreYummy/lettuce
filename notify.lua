@@ -11,7 +11,7 @@ NotifGui.Parent = RunService:IsStudio() and Player.PlayerGui or game:GetService(
 local Container = Instance.new("Frame");
 Container.Name = "Container";
 Container.Position = UDim2.new(0.5, -150, 1, -100);
-Container.Size = UDim2.new(0, 300, 0.5, 0);
+Container.Size = UDim2.new(0, 300, 0.7, 0);
 Container.BackgroundTransparency = 1;
 Container.Parent = NotifGui;
 
