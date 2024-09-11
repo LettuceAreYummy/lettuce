@@ -10,7 +10,7 @@ NotifGui.Parent = RunService:IsStudio() and Player.PlayerGui or game:GetService(
 
 local Container = Instance.new("Frame");
 Container.Name = "Container";
-Container.Position = UDim2.new(0, 20, 0.5, -20);
+Container.Position = UDim2.new(0.5, -150, 1, -20);
 Container.Size = UDim2.new(0, 300, 0.5, 0);
 Container.BackgroundTransparency = 1;
 Container.Parent = NotifGui;
@@ -77,8 +77,7 @@ local function Update()
 		local NewValue = TweenService:GetValue(Delta, TweenStyle, TweenDirection);
 		local CurrentPos = Label.Position;
 		local PreviousBounds = CalculateBounds(PreviousObjects);
-		-- Adjust target position to move up from below middle
-		local TargetPos = UDim2.new(0.5, -150, 0.5, PreviousBounds.Y + (Padding * #PreviousObjects));
+		local TargetPos = UDim2.new(0, 0, 0, PreviousBounds.Y + (Padding * #PreviousObjects));
 		Label.Position = CurrentPos:Lerp(TargetPos, NewValue);
 		table.insert(PreviousObjects, Label);
 	end
@@ -192,8 +191,7 @@ return {
 			end
 			local NewLabel = Round2px();
 			NewLabel.Size = UDim2.new(1, 0, 0, Y);
-			-- Adjust initial position to come from below middle
-			NewLabel.Position = UDim2.new(0.5, -150, 1, 20);
+			NewLabel.Position = UDim2.new(-1, 20, 0, CalculateBounds(CachedObjects).Y + (Padding * #CachedObjects));
 			if (Title) then
 				local NewTitle = TitleLabel(Title);
 				NewTitle.Size = UDim2.new(1, -10, 0, 26);
