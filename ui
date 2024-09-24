@@ -487,10 +487,8 @@ function library:Watermark(text)
     end
     --
     function WatermarkFunctions:Remove()
-        print("Removing watermark...")
         if watermark then
             watermark:Destroy()
-            print("Watermark removed.")
         else
             warn("Watermark is nil, cannot remove.")
         end
