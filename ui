@@ -454,9 +454,13 @@ function library:Watermark(text)
             return NewWatermarkFunctions
         end
         --
-        function NewWatermarkFunctions:Remove()
-            Watermark:Destroy()
-            return NewWatermarkFunctions
+        function WatermarkFunctions:Remove()
+            if Watermark then
+                Watermark:Destroy()
+            else
+                warn("Watermark is nil, cannot remove.")
+            end
+            return WatermarkFunctions
         end
         return NewWatermarkFunctions
     end
